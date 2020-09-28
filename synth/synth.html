@@ -1,0 +1,28 @@
+<head>
+	<script src="audio.js"></script>
+</head>
+
+<body>
+
+	type
+	<input type="range" id="tIn" min="0" max="3" oninput="update()" />
+	<span id="tOut"></span><br>
+	volume
+	<input type="range" id="vIn" min="0" max="100" oninput="update()" />
+	<span id="vOut"></span><br>
+	<br>
+	<button id="play" name=0 onclick='beep();'>Play</button>
+	
+	<script>
+		var parent = document.createElement("div");
+		for (var i = 1; i < 12; i++) {
+			var button = document.createElement("button");
+			button.id = i;
+			button.innerHTML = "" + i;
+			button.addEventListener("click", function exec() { note(this.id); update(); }, false);
+			parent.appendChild(button);
+		}
+		document.body.insertBefore(parent, document.getElementById("play").nextSibling);
+	</script>
+	
+</body>
